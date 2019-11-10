@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <TabPane id="tabPaneMain" layoutX="3.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="621.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Today's Sales">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <TableView fx:id="TodaySaleTbl" layoutX="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="730.0">
+                           <columns>
+                              <TableColumn fx:id="TblClmTdSlCode" prefWidth="75.0" text="Code" />
+                              <TableColumn fx:id="TblClmTdSlName" minWidth="20.0" prefWidth="150.0" text="Prod Name" />
+                              <TableColumn fx:id="TblClmTdSlSP" text="SP" />
+                              <TableColumn fx:id="TblClmTdSlMRP" text="MRP" />
+                              <TableColumn fx:id="TblClmTdSlDisc" prefWidth="70.0" text="Disc %" />
+                              <TableColumn fx:id="TblClmTdSlColour" prefWidth="75.0" text="Colour" />
+                              <TableColumn fx:id="TblClmTdSlQty" prefWidth="50.0" text="Qty" />
+                              <TableColumn fx:id="TblClmTdSlCustName" prefWidth="140.0" text="Cust. Name" />
+                           </columns>
+                        </TableView>
+                        <Label fx:id="TdSlTotalLabel" layoutX="550.0" layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="170.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="545.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="480.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Button fx:id="TdSlBtn" layoutX="14.0" layoutY="480.0" mnemonicParsing="false" text="BTN" visible="false" />
+                     </children>
+                  </AnchorPane>
+               </content>
+               </Tab>
+            <Tab text="Sell Products">
+               <content>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                    <items>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="725.0">
+                           <children>
+                              <TextField fx:id="SoldProdName" layoutX="205.0" layoutY="108.0" prefHeight="35.0" prefWidth="300.0" promptText="Select Sold Product">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="263.0" layoutY="7.0" prefHeight="30.0" prefWidth="200.0" text="            Sell New Product" textAlignment="RIGHT">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="SoldProdPrice" layoutX="562.0" layoutY="111.0" prefHeight="35.0" prefWidth="149.0" promptText="Selling Price">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <DatePicker fx:id="SoldProdDateDP" layoutX="560.0" layoutY="37.0" prefHeight="35.0" prefWidth="151.0" promptText="Selling Date" />
+                              <TextField fx:id="SoldProdCustName" layoutX="205.0" layoutY="37.0" prefHeight="35.0" prefWidth="300.0" promptText="Customer's Name">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="SoldProdCustNum" layoutX="14.0" layoutY="37.0" prefHeight="35.0" prefWidth="150.0" promptText="Customer's Number" />
+                              <Button layoutX="600.0" layoutY="210.0" mnemonicParsing="false" onAction="#AddToCart" prefHeight="30.0" prefWidth="111.0" text="Add to Cart">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="SoldProdNewCustBtn" layoutX="14.0" layoutY="363.0" mnemonicParsing="false" onAction="#ProdAddNewCust" text="Add" visible="false" />
+                              <Label fx:id="NewCustLabel" layoutX="14.0" layoutY="225.0" text="Customer not available. Press Add button to make an entry." visible="false" />
+                              <Button fx:id="SoldProdNewCustBtn" layoutX="348.0" layoutY="221.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ProdAddNewCust" text="Add Customer" visible="false" />
+                              <TextField fx:id="SoldProdCode" layoutX="14.0" layoutY="108.0" prefHeight="35.0" prefWidth="149.0" promptText="Product Code">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <ComboBox fx:id="SoldProdColourComboBox" layoutX="14.0" layoutY="172.0" prefHeight="36.0" prefWidth="150.0" promptText="Colours" />
+                              <TextField fx:id="SoldProdID" layoutX="318.0" layoutY="179.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="14.0">
+                                 <font>
+                                    <Font size="2.0" />
+                                 </font>
+                              </TextField>
+                              <ComboBox fx:id="SoldProdQtyComboBox" layoutX="205.0" layoutY="173.0" prefHeight="35.0" prefWidth="90.0" promptText="Qty" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="217.0" prefWidth="725.0">
+                           <children>
+                              <TableView fx:id="SoldProdTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0">
+                                <columns>
+                                  <TableColumn fx:id="TblClmSoldProdCode" prefWidth="60.0" text="Code" />
+                                  <TableColumn fx:id="TblClmSoldProdName" prefWidth="130.0" text="Name" />
+                                   <TableColumn fx:id="TblClmSoldProdPrice" prefWidth="70.0" text="SP" />
+                                   <TableColumn fx:id="TblClmSoldProdColour" prefWidth="70.0" text="Colour" />
+                                   <TableColumn fx:id="TblClmSoldProdQty" prefWidth="45.0" text="Qty" />
+                                  <TableColumn fx:id="TblClmSoldSellingDate" prefWidth="70.0" text="Date" />
+                                  <TableColumn fx:id="TblClmSoldCustName" prefWidth="155.0" text="Customer Name" />
+                                  <TableColumn fx:id="TblClmSoldCustNum" prefWidth="120.0" text="Customer Number" />
+                                    <TableColumn fx:id="TblClmSoldProdID" prefWidth="1.0" visible="false" />
+                                </columns>
+                              </TableView>
+                              <Button layoutX="588.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#SoldProd" text="Create Invoice">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </content></Tab>
+         <Tab text="Search">
+               <content>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                    <items>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="725.0">
+                           <children>
+                              <TextField fx:id="SearchProdTxt" layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="250.0" promptText="Prod. Search (Code/Name)">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <DatePicker fx:id="SearchMainDateDP" layoutX="264.0" layoutY="59.0" prefHeight="35.0" prefWidth="140.0" promptText="Date" />
+                              <DatePicker fx:id="SearchEndDateDP" layoutX="431.0" layoutY="59.0" prefHeight="35.0" prefWidth="140.0" promptText="End Date" />
+                              <Button layoutX="651.0" layoutY="64.0" mnemonicParsing="false" onMouseClicked="#search" prefHeight="30.0" prefWidth="60.0" text="Search">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="BillSearchTxt" layoutX="14.0" layoutY="59.0" prefHeight="35.0" prefWidth="160.0" promptText="BillID">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="SearchColourTxt" layoutX="306.0" layoutY="14.0" prefHeight="35.0" prefWidth="125.0" promptText="Colour" />
+                              <ComboBox fx:id="SearchCatgComboBox" layoutX="511.0" layoutY="14.0" prefHeight="35.0" prefWidth="140.0" promptText="Category" />
+                           </children>
+                        </AnchorPane>
+                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="355.0" prefWidth="725.0">
+                          <items>
+                            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="725.0">
+                                 <children>
+                                    <TableView fx:id="searchSoldProdTbl" layoutX="8.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="725.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="SearchSoldClmDate" prefWidth="75.0" text="Date" />
+                                          <TableColumn fx:id="SearchSoldClmProdCode" prefWidth="75.0" text="Code" />
+                                          <TableColumn fx:id="SearchSoldClmProdName" minWidth="20.0" prefWidth="150.0" text="Prod Name" />
+                                          <TableColumn fx:id="SearchSoldClmSP" prefWidth="70.0" text="SP" />
+                                          <TableColumn fx:id="SearchSoldClmMRP" prefWidth="70.0" text="MRP" />
+                                          <TableColumn fx:id="SearchSoldClmDisc" prefWidth="60.0" text="Disc %" visible="false" />
+                                          <TableColumn fx:id="SearchSoldClmColour" prefWidth="75.0" text="Colour" />
+                                          <TableColumn fx:id="SearchSoldClmQty" prefWidth="50.0" text="Qty" />
+                                          <TableColumn fx:id="SearchSoldClmCustName" prefWidth="150.0" text="Cust. Name" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="725.0">
+                                 <children>
+                                    <TableView fx:id="SearchStockProdTbl" layoutX="8.0" layoutY="14.0" prefHeight="205.0" prefWidth="725.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                          <TableColumn fx:id="SearchAvlCode" prefWidth="75.0" text="Code" />
+                                        <TableColumn fx:id="SearchAvlName" prefWidth="150.0" text="Name" />
+                                        <TableColumn fx:id="SearchAvlPP" prefWidth="75.0" text="Prch Price" />
+                                          <TableColumn fx:id="SearchAvlMRP" prefWidth="75.0" text="MRP" />
+                                          <TableColumn fx:id="SearchAvlColour" prefWidth="85.0" text="Colour" />
+                                          <TableColumn fx:id="SearchAvlQty" prefWidth="75.0" text="Qty avl" />
+                                          <TableColumn fx:id="SearchAvlSize" prefWidth="75.0" text="Size" />
+                                          <TableColumn fx:id="SearchAvlCatg" prefWidth="95.0" text="Catg." />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                    </items>
+                  </SplitPane>
+               </content></Tab>
+            
+            <Tab text="Add New Product">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <TextField fx:id="ProdNameTxt" layoutX="26.0" layoutY="29.0" prefHeight="31.0" prefWidth="568.0" promptText="Name of the Product">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="ProdMRPTxt" layoutX="551.0" layoutY="200.0" prefHeight="34.0" prefWidth="160.0" promptText="MRP">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <DatePicker fx:id="ProdPurDateDP" layoutX="551.0" layoutY="361.0" prefHeight="32.0" prefWidth="160.0" promptText="Date of Purchase" />
+                        <Button fx:id="AddProdBtn" layoutX="614.0" layoutY="455.0" mnemonicParsing="false" onAction="#addProd" prefHeight="38.0" prefWidth="90.0" text="Add">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="ProdQntTxt" layoutX="26.0" layoutY="361.0" prefHeight="31.0" prefWidth="149.0" promptText="Quantity of the same" />
+                        <TextField fx:id="ProdColorTxt" layoutX="26.0" layoutY="284.0" prefHeight="34.0" prefWidth="149.0" promptText="Color">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="ProdPurPriceTxt" layoutX="26.0" layoutY="200.0" prefHeight="34.0" prefWidth="156.0" promptText="Purchase Price">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="ProdCatComboBox" layoutX="26.0" layoutY="109.0" prefHeight="34.0" prefWidth="159.0" promptText="Category" />
+                        <TextField fx:id="ProdCodeTxt" layoutX="551.0" layoutY="109.0" prefHeight="34.0" prefWidth="160.0" promptText="Product Code">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="ProdSizeComboBox" editable="true" layoutX="551.0" layoutY="284.0" prefHeight="34.0" prefWidth="160.0" promptText="Size" visibleRowCount="100" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            
+           <Tab text="Customers ">
+               <content>
+                  <SplitPane dividerPositions="0.41005802707930367" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="621.0">
+                           <children>
+                              <TextField fx:id="CusNameTxt" layoutX="14.0" layoutY="46.0" prefHeight="35.0" prefWidth="350.0" promptText="Customer Name">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></TextField>
+                              <Label layoutX="260.0" layoutY="14.0" prefHeight="29.0" prefWidth="209.0" text="         New Customer Entry">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="CusNumTxt" layoutX="536.0" layoutY="46.0" prefHeight="35.0" prefWidth="175.0" promptText="Customer Number">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <DatePicker fx:id="CusBDayDP" layoutX="14.0" layoutY="106.0" prefHeight="35.0" prefWidth="185.0" promptText="Customer B'Day" />
+                              <Button layoutX="650.0" layoutY="109.0" mnemonicParsing="false" onAction="#addCust" prefHeight="25.0" prefWidth="61.0" text="Add">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="725.0">
+                           <children>
+                              <TableView fx:id="CustomerTbl" layoutY="45.0" prefHeight="305.0" prefWidth="725.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                                <columns>
+                                  <TableColumn fx:id="CustSearchSr" prefWidth="60.0" text="No." />
+                                  <TableColumn fx:id="CustNameClm" prefWidth="250.0" text="Customer Name" />
+                                  <TableColumn fx:id="CustNumbClm" prefWidth="150.0" text="Customer Number" />
+                                  <TableColumn fx:id="CustBDayClm" prefWidth="150.0" text="Customer Birthday" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="CustSearchTxt" alignment="CENTER" layoutX="283.0" layoutY="12.0" prefHeight="25.0" prefWidth="160.0" text="All Customers">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Button layoutX="659.0" layoutY="12.0" minHeight="12.0" mnemonicParsing="false" onAction="#CustSearch" prefHeight="25.0" prefWidth="52.0" text="Search" />
+                              <Label fx:id="CustInvalidLbl" layoutX="103.0" layoutY="16.0" text="NOTE: Invalid Argument" visible="false" />
+                              <DatePicker fx:id="CustSearchBDayDP" layoutX="461.0" layoutY="12.0" prefHeight="25.0" prefWidth="135.0" promptText="B'Day" />
+                           </children></AnchorPane>
+                    </items>
+                  </SplitPane>
+               </content></Tab> 
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
